@@ -45,7 +45,7 @@ p {
 }
 
 /* Sections */
-#aboutme, #projects, #contact {
+#aboutme, #projects, #employment, #contact {
   width: 100%;
   max-width: 1000px;
   text-align: center;
@@ -67,7 +67,13 @@ p {
   transform: translateY(-2px);
 }
 
-#projects {
+#employment:has(:hover) {
+  box-shadow: 0 0 14px rgba(255, 0, 255, 0.75), 0 0 30px rgba(255, 0, 255, 0.35), 0 4px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+#projects,
+#employment {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,7 +93,22 @@ p {
   text-shadow: 0 0 12px rgba(255, 102, 153, 0.95), 0 0 26px rgba(255, 102, 153, 0.5), 0 0 42px rgba(255, 102, 153, 0.25);
 }
 
-.project {
+#employment h1 {
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+#employment h1:hover {
+  color: #ff00ff;
+  text-shadow: 0 0 12px rgba(255, 0, 255, 0.95), 0 0 26px rgba(255, 0, 255, 0.5), 0 0 42px rgba(255, 0, 255, 0.25);
+}
+
+#employment:has(.employment-project:hover) h1 {
+  color: #ff00ff;
+  text-shadow: 0 0 12px rgba(255, 0, 255, 0.95), 0 0 26px rgba(255, 0, 255, 0.5), 0 0 42px rgba(255, 0, 255, 0.25);
+}
+
+.project,
+.employment-project {
   display: block;
   text-decoration: none;
   color: inherit;
@@ -100,14 +121,45 @@ p {
   transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project:hover {
+.project:hover,
+.employment-project:hover {
   transform: translateY(-4px);
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* Employment background placeholder: set `data-image` attribute on the element to provide a URL later */
+.employment-project {
+  position: relative;
+  overflow: hidden;
+}
+
+.employment-project .employment-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.05;
+  transition: opacity 260ms ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.employment-project:hover .employment-bg {
+  opacity: 0.2;
+}
+
+.employment-project h2,
+.employment-project p {
+  position: relative;
+  z-index: 1;
+}
+
 /* Project Titles */
-.project h2 {
+.project h2,
+.employment-project h2 {
   font-size: 1.4rem;
   margin-bottom: 10px;
   color: #33c2ff;
@@ -121,9 +173,16 @@ p {
   text-shadow: 0 0 12px rgba(255, 102, 153, 0.95), 0 0 24px rgba(255, 102, 153, 0.55), 0 0 40px rgba(255, 102, 153, 0.25);
 }
 
+#employment .employment-project:hover h2 {
+  color: #ff00ff;
+  text-shadow: 0 0 12px rgba(255, 0, 255, 0.95), 0 0 24px rgba(255, 0, 255, 0.55), 0 0 40px rgba(255, 0, 255, 0.25);
+}
+
 .project p {
   text-align: center;
 }
+
+/* (removed black base shadow under employment descriptions) */
 
 
 /* Links */
@@ -136,6 +195,11 @@ a {
 a:hover {
   color: #ff6699;
   text-shadow: 0 0 10px rgba(255, 102, 153, 0.9), 0 0 20px rgba(255, 102, 153, 0.45);
+}
+
+#employment a:hover {
+  color: #ff00ff;
+  text-shadow: 0 0 12px rgba(255, 0, 255, 0.95), 0 0 24px rgba(255, 0, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.25);
 }
 
 /* Responsive */
