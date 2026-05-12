@@ -50,7 +50,7 @@ body > *:not(.page-bg) {
 }
 
 .hero {
-    /* background: url("./me.png") no-repeat center center/cover; */
+    /* background: url("./assets/me.png") no-repeat center center/cover; */
     height: 100vh;
     display: flex;
     justify-content: center;
