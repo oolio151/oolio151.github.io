@@ -5,6 +5,14 @@
   box-sizing: border-box;
 }
 
+.innerlink:hover {
+  text-decoration: underline;
+}
+
+.innerlink {
+  font-size: 1.1rem;
+}
+
 html, body {
   height: 100%;
   font-family: 'JetBrains Mono', monospace;
