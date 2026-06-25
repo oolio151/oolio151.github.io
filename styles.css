@@ -4,6 +4,26 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+.header {
+    margin-top: 2em;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    gap: 5em;
+}
+
+.header-option:hover {
+    text-decoration: underline;
+}
+
 body,
 html {
     height: 100%;
@@ -15,6 +35,11 @@ html {
 /* Page background image overlay (circuit.jpg) at 10% opacity */
 body {
     position: relative;
+}
+
+.header-option.active {
+  color: #33c2ff;
+  text-shadow: 0 0 14px rgba(51, 194, 255, 1), 0 0 28px rgba(51, 194, 255, 0.6), 0 0 46px rgba(51, 194, 255, 0.3);
 }
 
 .page-bg {
@@ -30,11 +55,6 @@ body {
     z-index: 0;
 }
 
-/* Ensure page content sits above the background image */
-body > *:not(.page-bg) {
-    position: relative;
-    z-index: 1;
-}
 
 
 
@@ -51,7 +71,7 @@ body > *:not(.page-bg) {
 
 .hero {
     /* background: url("./assets/me.png") no-repeat center center/cover; */
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;

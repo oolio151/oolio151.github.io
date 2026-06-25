@@ -39,18 +39,12 @@ body {
   z-index: 0;
 }
 
-/* Ensure page content sits above the background image */
-body > *:not(.page-bg) {
-  position: relative;
-  z-index: 1;
-}
 
 /* Layout */
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 60px 20px;
   line-height: 1.7;
 }
 

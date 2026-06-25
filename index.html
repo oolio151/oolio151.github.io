@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Varun Sammeta</title>
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./about.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
@@ -12,11 +13,17 @@
 </head>
 <body>
   <img class="page-bg" src="./assets/circuit.jpg" alt="background" />
-  <div class="hero">
+  <header class="header">
+        <a class="header-option" href="#aboutme">About</a>
+        <a class="header-option" href="#projects">Projects</a>
+        <a class="header-option" href="#employment">Employment</a>
+        <a class="header-option" href="#contact">Connect</a>
+  </header> 
+  <section class="hero">
     <div class="overlay">
       <!-- <h3 class="subtitle">COMPUTER ENGINEERING STUDENT</h3> -->
       <h1 class="title">Varun Sammeta</h1>
-      <a href="./about.html" class="enter-button">EXPLORE</a>
+      <!-- <a href="./about.html" class="enter-button">EXPLORE</a> -->
       <div class="socials">
         <a class="instagram" href="https://www.instagram.com/facilityzerodev/" aria-label="Instagram"><span class="social-icon instagram-icon"></span></a>
         <a class="github" href="https://github.com/oolio151" aria-label="GitHub"><span class="social-icon github-icon"></span></a>
@@ -26,7 +33,69 @@
       <br>
        <!-- <a style="color: white;" href="https://www.youtube.com/watch?v=I8SacRTRbLo">Latest Video here.</a> -->
     </div>
-  </div>
-  <script src="./index.js"></script>
+  </section>
+  <section class="about">
+    <img class="page-bg" src="./assets/circuit.jpg" alt="background" />
+    <div id="aboutme">
+        <h1>About Me</h1>
+        <p>I am a Computer Engineering Student at the University of Maryland, College Park. I have experience with
+            robotics, various types of collaborative software projects, and AI. Through events such as hacakthongs and
+            other academic projects, I have developed strong problem solving and teamwork skills. I am seeking
+            oppertunities where I can apply technical expertise and creativity in real-world applications, all while
+            learning about how the real expereince is like.</p>
+    </div>
+    <div id="projects">
+        <h1>Projects</h1>
+        <div class="project">
+            <h2>Emulators</h2>
+            <p>Emulators for various retro systems. Mostly an excuse to learn Rust as well as how hardware works. Currently working on the Nintendo Entertainment System.</p>
+            <a class="innerlink" href="https://github.com/oolio151/chip8">- Chip8</a> <br>
+            <a class="innerlink" href="https://github.com/oolio151/nes">- NES</a>
+        </div>
+
+        <a href="https://devpost.com/software/4dvisor" target="_blank" class="project">
+            <h2>4Dvisor</h2>
+            <p>A college course planner that tells you what courses you still need to graduate and what semesters you
+                should take them in, all while our AI updates you on whether your graduation goals are realistic and
+                recommends internship opportunities related to your major. Created for hackUMBC 2025.</p>
+        </a>
+
+        <a href="#" target="_blank" class="project">
+            <h2>Blaze Buster</h2>
+            <p>An autonomous robot that navigates to a mission crash site, extinguishes candle fires, and dodges
+                obstacles to reach the end zone. Created for ENES100 at UMD.</p>
+        </a>
+
+
+    </div>
+
+    <div id="employment">
+        <h1>Employment</h1>
+        <a href="https://umiacs.umd.edu/" target="_blank" class="employment-project">
+              <img class="employment-bg" src="./assets/logo.svg" alt="" style="width: auto; align-self: start;" />
+            <h2>Tech Staff @ <u>UMIACS</u></h2>
+            <p>Student Technical Staff at the University of Maryland Institute for Advanced Computer Studies.
+                Duties include Setup/modification of computing hardware and infrastructure used for research,
+                system administration, creation of relevant software, and staffing of the UMIACS help desk
+            </p>
+        </a>
+        <a href="https://racing.umd.edu/formula-ev/" target="_blank" class="employment-project">
+                <img class="employment-bg" src="./assets/shirt2-aero-scaled.png" alt="" />
+            <h2>Electrical Subteam @ <u>Terps Racing EV</u></h2>
+            <p>UMD's Formula SAE Electric Vehicle team. I worked on the CAN bus for car telemetry
+                as well as on the software for the car's dashboard utilizaing a Raspberry Pi and
+                a custom CAN hat.
+            </p>
+        </a>
+
+
+    </div>
+
+
+    <div id="contact">
+        <h1>Contact Me</h1>
+        <p>Email: <a href="mailto:vsammeta5526@gmail.com">vsammeta5526@gmail.com</a> </p>
+    </div>
+    <script src="./about.js"></script>
 </body>
 </html>
