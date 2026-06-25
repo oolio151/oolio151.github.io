@@ -55,8 +55,16 @@ body {
     z-index: 0;
 }
 
+.block {
+    scroll-margin-top: 6em;
+}
 
-
+#special {
+    position: fixed;
+    top: 1em;
+    left: 2em;
+    font-size: 1.5em;
+}
 
 .overlay {
     /* background-color: rgba(0, 0, 0, 0.3); */
