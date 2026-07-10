@@ -4,24 +4,154 @@
     box-sizing: border-box;
 }
 
+#backbutton {
+    background-color: transparent;
+    border-width: 2px;
+    border-color: #33c2ff;
+    border-radius: 10px;
+    color: #33c2ff;
+    font-family: 'JetBrains Mono', monospace;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+#backbutton::before {
+    content: "<-";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(calc(-50% + 12px), -50%);
+    opacity: 0;
+    color: #33c2ff;
+    text-shadow: 0 0 10px rgba(51, 194, 255, 0.75), 0 0 18px rgba(51, 194, 255, 0.45);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    pointer-events: none;
+}
+
+#backbutton::after {
+    content: "";
+}
+
+#backbutton:hover {
+    color: transparent;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(51, 194, 255, 0.8), 0 0 28px rgba(51, 194, 255, 0.45), 0 0 44px rgba(51, 194, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+#backbutton:hover::before {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
 }
 .header {
-    margin-top: 2em;
-    flex: 1;
+    margin-top: 0;
     display: flex;
     justify-content: center;
+    width: max-content;
+    padding: 0.5rem 2rem;
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1000;
     gap: 5em;
+    background-color: rgba(0, 2, 25, 0.9);
+    border-radius: 0 0 16px 16px;
 }
 
 .header-option:hover {
-    text-decoration: underline;
+    text-decoration: none;
+}
+
+.header-option {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.header-option {
+    --header-glow: rgba(51, 194, 255, 0.95);
+}
+
+.header-about {
+    --header-glow: rgba(168, 255, 0, 0.95);
+}
+
+.header-projects {
+    --header-glow: rgba(0, 136, 255, 0.95);
+}
+
+.header-employment {
+    --header-glow: rgba(255, 0, 255, 0.95);
+}
+
+.header-contact {
+    --header-glow: rgba(255, 215, 0, 0.95);
+}
+
+.header-default,
+.header-hover {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.header-hover {
+    position: absolute;
+    inset: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.15em;
+    opacity: 0;
+    transform: translateY(6px) scale(0.92);
+    pointer-events: none;
+}
+
+.header-icon {
+    font-size: 1.12em;
+}
+
+.header-bracket {
+    color: #33c2ff;
+}
+
+.header-option:hover .header-default {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.92);
+}
+
+.header-option:hover .header-hover {
+    opacity: 1;
+    transform: translateY(0) scale(1.8);
+}
+
+.header-option:hover .header-default,
+.header-option:hover .header-hover,
+.header-option:hover .header-bracket,
+.header-option:hover .header-icon {
+    text-shadow: 0 0 12px var(--header-glow), 0 0 26px var(--header-glow), 0 0 42px var(--header-glow);
+}
+
+.header-option:hover .header-hover {
+    filter: drop-shadow(0 0 10px var(--header-glow));
+}
+
+#aboutme,
+#projects,
+#employment,
+#contact {
+    scroll-margin-top: 7rem;
 }
 
 body,
