@@ -1,0 +1,33 @@
+.crt-screen {
+  position: relative;
+  display: inline-block;
+  padding: 2rem 4rem;
+  background: #0d0d0d;
+  overflow: hidden;
+}
+
+.crt-text,
+.crt-text * {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  color: var(--crt-color, #33ff66);
+  text-shadow:
+    0 0 0.05em var(--crt-color, #33ff66),
+    0 0 0.15em var(--crt-color, #33ff66),
+    0 0 0.3em var(--crt-color, #33ff66);
+}
+
+.crt-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
