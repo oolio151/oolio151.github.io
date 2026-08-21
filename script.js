@@ -77,8 +77,8 @@ const content = {
     <br>
     <div style="margin-bottom: 0.1rem;">Skills</div>
     <span style="--crt-color: #25b349;">
-      Rust, C++, Python, Java, HTML/CSS/JS, React, Node.js, <br>
-      Microcontrollers, Robotics, Linux, Git, Docker, REST APIs, Emulation
+      Rust, C++, Python, Java, HTML/CSS/JS, React, Node.js, C#<br>
+      Microcontrollers, Robotics, Linux, Git, Docker, REST APIs, Emulation, Django, Unity
     </span>
   </div>
 `,

@@ -17,9 +17,9 @@
     0 0 0.3em var(--crt-color, #33ff66);
 }
 
-.crt-screen::before {
+body::before {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
   background: repeating-linear-gradient(
     to bottom,
