@@ -17,7 +17,6 @@ a:hover {
 
 header {
     display: flex;
-
 }
 
 header div {
@@ -40,28 +39,6 @@ header div {
   z-index: 1;
 }
 
-@media (max-width: 600px) {
-  .crt-screen {
-    display: block;
-    padding: 1.25rem 1rem;
-  }
-}
-
-@media (max-width: 600px) {
-  header {
-    flex-wrap: wrap;
-    row-gap: 0.5rem;
-  }
-  header div {
-    margin-right: 1ch;
-    font-size: 0.85rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .crt-text[style*="margin-bottom: 3em"] { display: none; }
-}
-
 html, body {
   max-width: 100%;
   overflow-x: hidden;
@@ -70,17 +47,68 @@ html, body {
   box-sizing: border-box;
 }
 
-@media (max-width: 600px) {
-  .crt-fixed-link {
-    position: static;
-    margin-top: 2rem;
-    text-align: center;
-  }
+.social-icons {
+  display: flex;
 }
 
 @media (max-width: 600px) {
+  .crt-screen {
+    display: block;
+    padding: 1.25rem 1rem;
+  }
+
+  header {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    padding-bottom: 1rem;
+  }
+
+  header div {
+    margin-right: 1ch;
+    font-size: 0.85rem;
+  }
+
+  .crt-text[style*="margin-bottom: 3em"] {
+    display: none;
+  }
+
   .exp-row {
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  #console-line {
+    display: none !important;
+  }
+
+  .social-icons {
+    position: fixed;
+    bottom: 4.5rem;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+    gap: 2ch;
+    background: #0d0d0d;
+    padding: 0.75rem 0;
+  }
+
+  .social-icons .bi {
+    font-size: 1.75rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .crt-fixed-link {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    background: #0d0d0d;
+    margin-top: 2rem;
   }
 }
