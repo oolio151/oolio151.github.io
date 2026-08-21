@@ -31,3 +31,9 @@
   pointer-events: none;
   z-index: 2;
 }
+
+.crt-invert {
+  background-color: var(--crt-color, #33ff66);
+  color: #0d0d0d;
+  padding: 0.1em;
+}

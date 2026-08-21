@@ -7,7 +7,7 @@ const consoleCmd = document.getElementById('console-cmd');
 const navLinks = document.querySelectorAll('header a');
 
 const content = {
-  about: "Hi! I'm Varun Sammeta, a Computer Engineering Student at the University of Maryland, College Park. I have experience with robotics, various types of collaborative software projects, and AI.<br>I am currently working tech staff and development at UMIACS, and working on some side projects including emulators and microcontroller tools.",
+  about: "Hi! I'm Varun Sammeta, a Computer Engineering Student at the University of Maryland, College Park, most likely graduating Fall 2028. I have experience with robotics, various types of collaborative software projects, and AI.<br><br>I am currently working tech staff and development at UMIACS, and working on some side projects including emulators and microcontroller tools.<br><br>Feel free to reach out!",
   experience: `
   <div style="
     display: flex;
@@ -32,9 +32,9 @@ const content = {
       >
 
       <div style="flex: 1;">
-        <a href="https://umiacs.umd.edu">
-          Technical Staff and Development @ UMIACS
-        </a> | Feb 26-Now
+        <a href="https://umiacs.umd.edu" target="_blank" rel="noopener noreferrer">
+          [ Technical Staff and Development @ UMIACS ]
+        </a> Feb 26-Now
         <br>
         <span style="--crt-color: #25b349;">
           Setup/modification of software and hardware used for research,
@@ -61,9 +61,9 @@ const content = {
       >
 
       <div style="flex: 1;">
-        <a href="https://terpsracing.umd.edu">
-          Electrical Subteam @ Terps Racing EV
-        </a> | Sep 25-Now
+        <a href="https://terpsracing.umd.edu" target="_blank" rel="noopener noreferrer">
+          [ Electrical Subteam @ Terps Racing EV ]
+        </a> Sep 25-Now
         <br>
         <span style="--crt-color: #25b349;">
           UMD's Formula SAE Electric Vehicle team. I worked on the CAN bus
@@ -89,13 +89,15 @@ const content = {
       gap: 1.5rem;
     ">
       <div style="flex: 1;">
-        <a href="https://github.com/oolio151/nes">
-          oolio151-nes
+        <a href="https://github.com/oolio151/nes" target="_blank" rel="noopener noreferrer">
+          [ oolio151-nes ]
         </a>
         <br>
         <span style="--crt-color: #25b349;">
           An in progress Nintendo Entertainment System emulator written in Rust. Currently working on the PPU and rendering, while the 6502-based CPU interpreter is complete. Currently only support NROM-based games, but more mappers will be added.
         </span>
+        <br>
+        <span style="--crt-color: #a5b325;">Tech: Rust, 6502 Assembly</span>
       </div>
     </div>
 
@@ -105,13 +107,15 @@ const content = {
       gap: 1.5rem;
     ">
       <div style="flex: 1;">
-        <a href="https://github.com/oolio151/esp32-api-companion">
-          esp32-api-companion
+        <a href="https://github.com/oolio151/esp32-api-companion" target="_blank" rel="noopener noreferrer">
+          [ esp32-api-companion ]
         </a>
         <br>
         <span style="--crt-color: #25b349;">
           A tool for the ESP32 microcontroller that allows for easy control and reading of the pins and serial output, as well as other states, through a REST API and a web interface, allowing for easier integration. Created using Arduino C++ libraries.
         </span>
+        <br>
+        <span style="--crt-color: #a5b325;">Tech: C++, REST API, Microcontrollers</span>
       </div>
     </div>
 

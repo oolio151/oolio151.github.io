@@ -32,3 +32,10 @@ header div {
 .intro-line.visible {
   opacity: 1;
 }
+
+.crt-fixed-link {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
+}
