@@ -62,7 +62,7 @@ const content = {
       >
 
       <div style="flex: 1;">
-        <a href="https://terpsracing.umd.edu" target="_blank" rel="noopener noreferrer">
+        <a href="https://racing.umd.edu/formula-ev/" target="_blank" rel="noopener noreferrer">
           Electrical Subteam @ Terps Racing EV <i class="bi bi-box-arrow-up-right"></i>
         </a> | Sep 25-Now
         <br>

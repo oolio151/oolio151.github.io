@@ -39,3 +39,48 @@ header div {
   right: 1.5rem;
   z-index: 1;
 }
+
+@media (max-width: 600px) {
+  .crt-screen {
+    display: block;
+    padding: 1.25rem 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+  }
+  header div {
+    margin-right: 1ch;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .crt-text[style*="margin-bottom: 3em"] { display: none; }
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .crt-fixed-link {
+    position: static;
+    margin-top: 2rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .exp-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
