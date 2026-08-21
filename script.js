@@ -7,18 +7,19 @@ const consoleCmd = document.getElementById('console-cmd');
 const navLinks = document.querySelectorAll('header a');
 
 const content = {
-  about: "Hi! I'm Varun Sammeta, a Computer Engineering Student at the University of Maryland, College Park, most likely graduating Fall 2028. I have experience with robotics, various types of collaborative software projects, and AI.<br><br>I am currently working tech staff and development at UMIACS, and working on some side projects including emulators and microcontroller tools.<br><br>Feel free to reach out!",
+  about: "Hi! I'm Varun Sammeta, a Computer Engineering Student at the University of Maryland, College Park, most likely graduating Fall 2028. I have experience with robotics, various types of collaborative software projects, and AI.<br><br>I am currently working tech staff and development at UMIACS, and working on some side projects including emulators and microcontroller tools.<br><br>Feel free to reach out!<br><br>Based in MD.",
   experience: `
   <div style="
     display: flex;
     flex-direction: column;
-    gap: 2rem;
   ">
 
+    <div style="margin-bottom: 0.5rem;">Work Experience</div>
     <div style="
       display: flex;
       align-items: flex-start;
       gap: 1.5rem;
+      margin-bottom: 2rem;
     ">
       <img
         src="assets/umiacs.png"
@@ -33,8 +34,8 @@ const content = {
 
       <div style="flex: 1;">
         <a href="https://umiacs.umd.edu" target="_blank" rel="noopener noreferrer">
-          [ Technical Staff and Development @ UMIACS ]
-        </a> Feb 26-Now
+          Technical Staff and Development @ UMIACS <i class="bi bi-box-arrow-up-right"></i>
+        </a> | Feb 26-Now
         <br>
         <span style="--crt-color: #25b349;">
           Setup/modification of software and hardware used for research,
@@ -62,8 +63,8 @@ const content = {
 
       <div style="flex: 1;">
         <a href="https://terpsracing.umd.edu" target="_blank" rel="noopener noreferrer">
-          [ Electrical Subteam @ Terps Racing EV ]
-        </a> Sep 25-Now
+          Electrical Subteam @ Terps Racing EV <i class="bi bi-box-arrow-up-right"></i>
+        </a> | Sep 25-Now
         <br>
         <span style="--crt-color: #25b349;">
           UMD's Formula SAE Electric Vehicle team. I worked on the CAN bus
@@ -73,7 +74,12 @@ const content = {
         </span>
       </div>
     </div>
-
+    <br>
+    <div style="margin-bottom: 0.1rem;">Skills</div>
+    <span style="--crt-color: #25b349;">
+      Rust, C++, Python, Java, HTML/CSS/JS, React, Node.js, <br>
+      Microcontrollers, Robotics, Linux, Git, Docker, REST APIs, Emulation
+    </span>
   </div>
 `,
   projects: `
@@ -90,7 +96,7 @@ const content = {
     ">
       <div style="flex: 1;">
         <a href="https://github.com/oolio151/nes" target="_blank" rel="noopener noreferrer">
-          [ oolio151-nes ]
+          oolio151-nes <i class="bi bi-box-arrow-up-right"></i>
         </a>
         <br>
         <span style="--crt-color: #25b349;">
@@ -108,7 +114,7 @@ const content = {
     ">
       <div style="flex: 1;">
         <a href="https://github.com/oolio151/esp32-api-companion" target="_blank" rel="noopener noreferrer">
-          [ esp32-api-companion ]
+          esp32-api-companion <i class="bi bi-box-arrow-up-right"></i>
         </a>
         <br>
         <span style="--crt-color: #25b349;">
