@@ -41,7 +41,8 @@ const content = {
           Setup/modification of software and hardware used for research,
           system administration, creation and revamping of internal apps
           used for management, and staffing of the UMIACS Help Desk.
-        </span>
+        </span><br>
+        <span style="--crt-color: #a5b325;">Tech: Django, Puppet, Linux, Cobbler</span>
       </div>
     </div>
 
@@ -71,7 +72,8 @@ const content = {
           for car telemetry as well as on the software for the car's dashboard
           utilizing a Raspberry Pi and a custom CAN HAT. I also created a
           webapp to make custom dashboard and signal configurations.
-        </span>
+        </span><br>
+        <span style="--crt-color: #a5b325;">Tech: Python, Raspberry Pi, CAN</span>
       </div>
     </div>
     <br>
