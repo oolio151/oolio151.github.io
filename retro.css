@@ -2,7 +2,7 @@
   position: relative;
   display: inline-block;
   padding: 2rem 4rem;
-  background: #0d0d0d;
+  background: var(--crt-background);
   overflow: hidden;
 }
 
@@ -10,11 +10,11 @@
 .crt-text * {
   font-family: "JetBrains Mono", monospace;
   font-weight: 700;
-  color: var(--crt-color, #33ff66);
+  color: var(--crt-color, var(--crt-primary));
   text-shadow:
-    0 0 0.05em var(--crt-color, #33ff66),
-    0 0 0.15em var(--crt-color, #33ff66),
-    0 0 0.3em var(--crt-color, #33ff66);
+    0 0 0.05em var(--crt-color, var(--crt-primary)),
+    0 0 0.15em var(--crt-color, var(--crt-primary)),
+    0 0 0.3em var(--crt-color, var(--crt-primary));
 }
 
 body::before {
@@ -33,7 +33,7 @@ body::before {
 }
 
 .crt-invert {
-  background-color: var(--crt-color, #33ff66);
-  color: #0d0d0d;
+  background-color: var(--crt-color, var(--crt-primary));
+  color: var(--crt-background);
   padding: 0.1em;
 }

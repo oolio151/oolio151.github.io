@@ -1,9 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
+:root {
+  --crt-primary: #33ff66;
+  --crt-secondary: #25b349;
+  --crt-tertiary: #a5b325;
+  --crt-accent: #3347ff;
+  --crt-background: #0d0d0d;
+  --crt-fade: #33ff66;
+}
+
 body {
   font-family: "JetBrains Mono", monospace;
   background-color: black;
-  color: rgb(0, 255,0 );
+  color: var(--crt-primary);
 }
 
 a {
@@ -117,6 +126,10 @@ html {
   display: flex;
 }
 
+.theme-controls {
+  display: none;
+}
+
 @media (min-width: 601px) {
     .crt-screen {
         display: block;
@@ -129,16 +142,42 @@ html {
     .crt-fixed-link {
         right: max(1.5rem, calc((100vw - 133.333vh) / 2 + 1.5rem));
     }
+
+    .theme-controls {
+        position: fixed;
+        top: 1.5rem;
+        right: max(1.5rem, calc((100vw - 133.333vh) / 2 + 1.5rem));
+        z-index: 3;
+        display: flex;
+        gap: 0.65rem;
+    }
+
+    .theme-button {
+        width: 1.75rem;
+        height: 1.75rem;
+        padding: 0;
+        border: 2px solid var(--swatch-primary);
+        border-radius: 0.4rem;
+        background: var(--swatch-background);
+        cursor: pointer;
+    }
+
+    .theme-button:hover,
+    .theme-button:focus-visible,
+    .theme-button[aria-pressed="true"] {
+        box-shadow: 0 0 0.5rem var(--swatch-primary);
+        transform: translateY(-1px);
+    }
 }
 
 @media (min-width: 601px) and (min-aspect-ratio: 4 / 3) {
     html {
         background: linear-gradient(
             to right,
-            #2b2b2b 0,
-            #0d0d0d calc(50% - 66.6665vh),
-            #0d0d0d calc(50% + 66.6665vh),
-            #2b2b2b 100%
+            var(--crt-fade) 0,
+            var(--crt-background) calc(50% - 66.6665vh),
+            var(--crt-background) calc(50% + 66.6665vh),
+            var(--crt-fade) 100%
         );
         background-attachment: fixed;
     }
@@ -182,7 +221,7 @@ html {
         width: 100%;
         justify-content: center;
         gap: 2ch;
-        background: #0d0d0d;
+        background: var(--crt-background);
         padding: 0.75rem 0;
     }
 
@@ -202,6 +241,6 @@ html {
         bottom: 1rem;
         width: 100%;
         text-align: center;
-        background: #0d0d0d;
+        background: var(--crt-background);
     }
 }

@@ -8,6 +8,63 @@ const navLinks = document.querySelectorAll('header a');
 let contentTimers = [];
 const speedModifier = 0.6;
 
+const themes = {
+  green: {
+    primary: "#33ff66",
+    secondary: "#25b349",
+    tertiary: "#a5b325",
+    accent: "#3347ff",
+    background: "#0d0d0d",
+    fade: "#2b2b2b",
+  },
+  amber: {
+    primary: "#ffb000",
+    secondary: "#d17b00",
+    tertiary: "#ffe066",
+    accent: "#ff5c35",
+    background: "#140f08",
+    fade: "#3a2b18",
+  },
+  blue: {
+    primary: "#62d8ff",
+    secondary: "#2aa6c9",
+    tertiary: "#b5e853",
+    accent: "#9d7cff",
+    background: "#080d14",
+    fade: "#233342",
+  },
+  mono: {
+    primary: "#5c3b24",
+    secondary: "#79563b",
+    tertiary: "#9a6b3f",
+    accent: "#3f2a1d",
+    background: "#e8dcc4",
+    fade: "#b9a98a",
+  },
+};
+
+function applyTheme(themeName) {
+  const theme = themes[themeName];
+  if (!theme) return;
+
+  const root = document.documentElement;
+  Object.entries(theme).forEach(([role, color]) => {
+    root.style.setProperty(`--crt-${role}`, color);
+  });
+
+  document.querySelectorAll('.theme-button').forEach(button => {
+    button.setAttribute('aria-pressed', button.dataset.theme === themeName);
+  });
+
+  localStorage.setItem('crt-theme', themeName);
+}
+
+document.querySelectorAll('.theme-button').forEach(button => {
+  button.addEventListener('click', () => applyTheme(button.dataset.theme));
+});
+
+applyTheme(localStorage.getItem('crt-theme') || 'green');
+
 class Song{
   constructor(filename, title, artist, link = ""){
     this.albumcover = filename;
@@ -43,7 +100,7 @@ function createSongSection(songIndex) {
       <img src="${song.albumcover}" alt="${song.title} album cover">
       <div>
         <div>${songTitle} </div>
-        <div style="--crt-color: #25b349;">${song.artist}</div>
+        <div style="--crt-color: var(--crt-secondary);">${song.artist}</div>
       </div>
     </div>
   </div>`;
@@ -92,12 +149,12 @@ const content = {
           Technical Staff and Development @ UMIACS <i class="bi bi-box-arrow-up-right"></i>
         </a> | Feb 26-Now
         <br>
-        <span style="--crt-color: #25b349;">
+        <span style="--crt-color: var(--crt-secondary);">
           Setup/modification of software and hardware used for research,
           system administration, creation and revamping of internal apps
           used for management, and staffing of the UMIACS Help Desk.
         </span><br>
-        <span style="--crt-color: #a5b325;">Tech: Django, Puppet, Linux, Cobbler</span>
+        <span style="--crt-color: var(--crt-tertiary);">Tech: Django, Puppet, Linux, Cobbler</span>
       </div>
     </div>
 
@@ -122,18 +179,18 @@ const content = {
           Electrical Subteam @ Terps Racing EV <i class="bi bi-box-arrow-up-right"></i>
         </a> | Sep 25-Now
         <br>
-        <span style="--crt-color: #25b349;">
+        <span style="--crt-color: var(--crt-secondary);">
           UMD's Formula SAE Electric Vehicle team. I worked on the CAN bus
           for car telemetry as well as on the software for the car's dashboard
           utilizing a Raspberry Pi and a custom CAN HAT. I also created a
           webapp to make custom dashboard and signal configurations.
         </span><br>
-        <span style="--crt-color: #a5b325;">Tech: Python, Raspberry Pi, CAN</span>
+        <span style="--crt-color: var(--crt-tertiary);">Tech: Python, Raspberry Pi, CAN</span>
       </div>
     </div>
     <br>
     <div style="margin-bottom: 0.1rem;">Skills</div>
-    <span style="--crt-color: #25b349;">
+    <span style="--crt-color: var(--crt-secondary);">
       Rust, C++, Python, Java, HTML/CSS/JS, React, Node.js, C#<br>
       Microcontrollers, Robotics, Linux, Git, Docker, REST APIs, Emulation, Django, Unity
     </span>
@@ -157,10 +214,10 @@ const content = {
         </a>
         <br>
         <span style="--crt-color: #25b349;">
-          An in progress Nintendo Entertainment System emulator written in Rust. Currently working on the APU (audio processing unit), while the 6502-based CPU interpreter and PPU graphics chip are complete. For now it only supports NROM-based games, but more mappers will be added.
+          An in progress Nintendo Entertainment System emulator written in Rust. Currently working on the APU (audio processing unit), while the 6502-based CPU interpreter and PPU graphics chip are complete. Currently only support NROM-based games, but more mappers will be added.
         </span>
         <br>
-        <span style="--crt-color: #a5b325;">Tech: Rust, 6502 Assembly</span>
+        <span style="--crt-color: var(--crt-tertiary);">Tech: Rust, 6502 Assembly</span>
       </div>
     </div>
 
@@ -174,11 +231,11 @@ const content = {
           esp32-api-companion <i class="bi bi-box-arrow-up-right"></i>
         </a>
         <br>
-        <span style="--crt-color: #25b349;">
+        <span style="--crt-color: var(--crt-secondary);">
           An in-progress tool for the ESP32 microcontroller (and perhaps soon the raspberry pi) that allows for easy control and reading of the pins and serial output, as well as other states, through a REST API and a web interface, allowing for easier integration. Created using Arduino C++ libraries.
         </span>
         <br>
-        <span style="--crt-color: #a5b325;">Tech: C++, REST API, Microcontrollers</span>
+        <span style="--crt-color: var(--crt-tertiary);">Tech: C++, REST API, Microcontrollers</span>
       </div>
     </div>
 
