@@ -213,7 +213,7 @@ const content = {
           oolio151-nes <i class="bi bi-box-arrow-up-right"></i>
         </a>
         <br>
-        <span style="--crt-color: #25b349;">
+        <span style="--crt-color: var(--crt-secondary);">
           An in progress Nintendo Entertainment System emulator written in Rust. Currently working on the APU (audio processing unit), while the 6502-based CPU interpreter and PPU graphics chip are complete. For now it only supports NROM-based games, but more mappers will be added.
         </span>
         <br>
