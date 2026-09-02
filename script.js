@@ -5,11 +5,66 @@ const consoleOutput = document.getElementById('console-output');
 const consoleLine = document.getElementById('console-line');
 const consoleCmd = document.getElementById('console-cmd');
 const navLinks = document.querySelectorAll('header a');
+let contentTimers = [];
+const speedModifier = 0.6;
+
+class Song{
+  constructor(filename, title, artist, link = ""){
+    this.albumcover = filename;
+    this.title = title;
+    this.artist = artist;
+    this.link = link;
+  }
+}
+
+const songs = [
+  new Song("assets/music/blow.jpg", "Blow", "Kesha", "https://open.spotify.com/track/3pYDZTJM2tVBUhIRifWVzI?si=19898db7f5884f7c"),
+  new Song("assets/music/champion.jpg", "Champion", "Kanye West", "https://open.spotify.com/track/4UQMOPSUVJVicIQzjAcRRZ?si=ed9e7d994c6b42b5"),
+  new Song("assets/music/darkthoughts.jpg", "Dark Thoughts", "Lil Tecca", "https://open.spotify.com/track/7EW7Yivb93qKAtp5qEm5of?si=56f34410ef234a15"),
+  new Song("assets/music/easy.jpg", "EASY", "LE SSERAFIM", "https://open.spotify.com/track/2O4Bb2WCkjlTPO827OnBMI?si=d79f789489a245f6"),
+  new Song("assets/music/home.jpg", "Home", "Metro Boomin", "https://open.spotify.com/track/2qlBAT108lYOzlXhBxBqEv?si=a57337b664034bb6"),
+  new Song("assets/music/igloo.jpg", "Igloo", "KISS OF LIFE", "https://open.spotify.com/track/2DbDefRFJ5YOfXCKOeCJJh?si=b20540fd8d8c45a8"),
+  new Song("assets/music/inthenight.jpg", "In the Night", "The Weeknd", "https://open.spotify.com/track/25KybV9BOUlvcnv7nN3Pyo?si=8c36dc61488a40ca"),
+  new Song("assets/music/nightcrawler.jpg", "Nightcrawler", "Travis Scott", "https://open.spotify.com/track/3xby7fOyqmeON8jsnom0AT?si=66f961a345ed4811"),
+  new Song("assets/music/wakemeup.jpg", "Wake Me Up", "The Weeknd", "https://open.spotify.com/track/5673WA8EEUSPx1ir26lhGW?si=dc7d66df795540c1"),
+  new Song("assets/music/wastedsummer.jpg", "Alphabet (Wasted Summer)", "Lovejoy", "https://open.spotify.com/track/0NnRAEXyHbn6xJACYVFnb0?si=b94b6030405845fe"),
+  new Song("assets/music/goosebumps.jpg", "Goosebumps", "Travis Scott", "https://open.spotify.com/track/6gBFPUFcJLzWGx4lenP6h2?si=dd74968f22ad4ad0"),
+];
+
+function createSongSection(songIndex) {
+  const song = songs[songIndex];
+  const songTitle = `<a href="${song.link}" target="_blank" rel="noopener noreferrer">${song.title} <i class="bi bi-box-arrow-up-right"></i></a>`;
+
+  return `<div class="song-section" data-song-index="${songIndex}">
+    <div class="song-heading">
+      <span>random song:</span>
+    </div>
+    <div class="song-row">
+      <img src="${song.albumcover}" alt="${song.title} album cover">
+      <div>
+        <div>${songTitle} </div>
+        <div style="--crt-color: #25b349;">${song.artist}</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function createAboutContent() {
+  const songIndex = Math.floor(Math.random() * songs.length);
+
+  return `<div class="sequential-content">
+    <p>Hi! I'm Varun Sammeta, a Computer Engineering Student at the University of Maryland, College Park, most likely graduating Fall 2028. I have experience with robotics, various types of collaborative software projects, and AI.</p>
+    <p>I am currently working tech staff and development at UMIACS, and working on some side projects including an NES emulator and microcontroller tools.</p>
+    <p>Based in MD.</p>
+    <p>Feel free to reach out at <a href="mailto:vsammeta5526@gmail.com" target="_blank" rel="noopener noreferrer">vsammeta5526@gmail.com</a></p>
+    ${createSongSection(songIndex)}
+  </div>`;
+}
 
 const content = {
-  about: "Hi! I'm Varun Sammeta, a Computer Engineering Student at the University of Maryland, College Park, most likely graduating Fall 2028. I have experience with robotics, various types of collaborative software projects, and AI.<br><br>I am currently working tech staff and development at UMIACS, and working on some side projects including emulators and microcontroller tools.<br><br>Feel free to reach out!<br><br>Based in MD.",
+  about: createAboutContent,
   experience: `
-  <div style="
+  <div class="sequential-content" style="
     display: flex;
     flex-direction: column;
   ">
@@ -85,7 +140,7 @@ const content = {
   </div>
 `,
   projects: `
-  <div style="
+  <div class="sequential-content" style="
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -102,7 +157,7 @@ const content = {
         </a>
         <br>
         <span style="--crt-color: #25b349;">
-          An in progress Nintendo Entertainment System emulator written in Rust. Currently working on the PPU and rendering, while the 6502-based CPU interpreter is complete. Currently only support NROM-based games, but more mappers will be added.
+          An in progress Nintendo Entertainment System emulator written in Rust. Currently working on the APU (audio processing unit), while the 6502-based CPU interpreter and PPU graphics chip are complete. Currently only support NROM-based games, but more mappers will be added.
         </span>
         <br>
         <span style="--crt-color: #a5b325;">Tech: Rust, 6502 Assembly</span>
@@ -120,7 +175,7 @@ const content = {
         </a>
         <br>
         <span style="--crt-color: #25b349;">
-          A tool for the ESP32 microcontroller that allows for easy control and reading of the pins and serial output, as well as other states, through a REST API and a web interface, allowing for easier integration. Created using Arduino C++ libraries.
+          An in-progress tool for the ESP32 microcontroller (and perhaps soon the raspberry pi) that allows for easy control and reading of the pins and serial output, as well as other states, through a REST API and a web interface, allowing for easier integration. Created using Arduino C++ libraries.
         </span>
         <br>
         <span style="--crt-color: #a5b325;">Tech: C++, REST API, Microcontrollers</span>
@@ -139,9 +194,52 @@ introLines.forEach((line, i) => {
 
 setTimeout(() => {
   intro.style.display = 'none';
+  welcomeLine.innerHTML = createAboutContent();
   welcomeLine.style.display = 'block';
   consoleLine.style.display = 'block';
+  revealSequentialContent(welcomeLine);
 }, introLines.length * 500 + 400);
+
+function revealSequentialContent(output) {
+  const container = output.querySelector('.sequential-content');
+  if (!container) return;
+
+  const blocks = Array.from(container.children).filter(
+    element => element.tagName !== 'BR'
+  );
+
+  blocks.forEach((block, i) => {
+    block.classList.add('loading-block');
+    const timer = setTimeout(() => {
+      block.classList.add('visible');
+    }, i * 500 * speedModifier);
+    contentTimers.push(timer);
+  });
+}
+
+function showContentSequentially(html) {
+  contentTimers.forEach(clearTimeout);
+  contentTimers = [];
+  consoleOutput.innerHTML = html;
+  revealSequentialContent(consoleOutput);
+}
+
+document.addEventListener('click', (event) => {
+  const refreshButton = event.target.closest('.song-refresh');
+  if (!refreshButton) return;
+
+  const currentSection = refreshButton.closest('.song-section');
+  const currentIndex = Number(currentSection.dataset.songIndex);
+  let nextIndex = currentIndex;
+
+  if (songs.length > 1) {
+    while (nextIndex === currentIndex) {
+      nextIndex = Math.floor(Math.random() * songs.length);
+    }
+  }
+
+  currentSection.outerHTML = createSongSection(nextIndex);
+});
 
 navLinks.forEach(link => {
   const section = link.getAttribute('href').replace('#', '');
@@ -172,7 +270,10 @@ navLinks.forEach(link => {
     if(!(label.startsWith("https") || label.startsWith("mailto"))){
         e.preventDefault();
         welcomeLine.style.display = 'none';
-        consoleOutput.innerHTML = content[section] || '';    
+        const sectionContent = typeof content[section] === 'function'
+          ? content[section]()
+          : content[section] || '';
+        showContentSequentially(sectionContent);
     }
     
   });
